@@ -1,21 +1,27 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "./layout.module.css";
+import utilStyles from "../styles/utils.module.css";
+import Link from "next/link";
+import React from "react";
 
+const name = "Greg";
+export const siteTitle = "Next.js Sample Website";
 
-const name = 'Greg'
-export const siteTitle = 'Next.js Sample Website'
-
-export default function Layout({ children, home }) {
+export default function Layout({
+  children,
+  home,
+}: {
+  children: React.ReactNode;
+  home?: boolean;
+}) {
   return (
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="flavicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a person website using Next.js" 
+          content="Learn how to build a person website using Next.js"
         />
         <meta
           property="og:image"
@@ -24,12 +30,12 @@ export default function Layout({ children, home }) {
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
         <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
         {home ? (
           <>
-            <Image 
+            <Image
               priority
               src="/images/GregGarner-square.jpg"
               className={utilStyles.borderCircle}
@@ -43,7 +49,7 @@ export default function Layout({ children, home }) {
           <>
             <Link href="/">
               <a>
-                <Image 
+                <Image
                   priority
                   src="/images/GregGarner-square.jpg"
                   className={utilStyles.borderCircle}
@@ -70,7 +76,7 @@ export default function Layout({ children, home }) {
         </div>
       )}
     </div>
-  )
+  );
 }
 
 // Can Add CSS in Javascript as well
